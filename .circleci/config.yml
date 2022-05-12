@@ -24,10 +24,6 @@ jobs:
           name: docker build
           command: |
             docker build -t test-copy -f copy.Dockerfile .
-      - run:
-          name: check image contents
-          command: |
-            docker run --rm test-copy ls -laH && (tar -cf - . | md5sum)
 workflows:
   main:
     jobs:
