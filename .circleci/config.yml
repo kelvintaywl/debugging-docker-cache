@@ -7,8 +7,8 @@ jobs:
     machine:
       image: ubuntu-2004:202111-02
       docker_layer_caching: true
-    # environment:
-    #   - DOCKER_BUILDKIT: 1
+    environment:
+      - DOCKER_BUILDKIT: 1
     steps:
       - checkout
       - run:
