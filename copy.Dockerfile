@@ -1,3 +1,3 @@
-FROM scratch
+FROM cimg/base:stable
 
 COPY . ./
