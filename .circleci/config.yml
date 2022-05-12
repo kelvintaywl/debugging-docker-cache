@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   test-copy:
     resource_class: medium
-    parallelism: 50  # max DLC volumes per project
+    # parallelism: 50  # max DLC volumes per project
     machine:
       image: ubuntu-2004:202111-02
       docker_layer_caching: true
