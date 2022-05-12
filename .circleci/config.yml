@@ -1,0 +1,29 @@
+version: 2.1
+
+jobs:
+  test-copy:
+    resource_class: small
+    machine:
+      image: ubuntu-2004:202111-02
+      docker_layer_caching: true
+    # environment:
+    #   - DOCKER_BUILDKIT: 1
+    steps:
+      - checkout
+      - run:
+          name: check git stage
+          command: |
+            git status -v
+      - run:
+          name: checksum
+          command: |
+            tar -cf - . | md5sum
+      - run:
+          name: docker build
+          command: |
+            docker build -t test-copy -f copy.Dockerfile .
+
+workflows:
+  main:
+    jobs:
+      - test-copy
