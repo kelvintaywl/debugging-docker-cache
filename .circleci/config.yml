@@ -12,9 +12,10 @@ jobs:
     steps:
       - checkout
       - run:
-          name: check git stage
+          name: check build context (.)
           command: |
             git status -v
+            ls -laH
       - run:
           name: checksum
           command: |
